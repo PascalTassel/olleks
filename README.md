@@ -72,7 +72,7 @@ Using ```npm run dev``` to start the server and ```yarn start``` to launch the R
 ```nodejs
 cd server/
 npm i
-npm run dev
+npm run start
 
 cd client/
 yarn
