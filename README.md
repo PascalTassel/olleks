@@ -38,7 +38,7 @@ After cloning, to install the project's dependencies :
 ```nodejs
 cd server/
 npm i
-npm run dev
+npm run start
 
 cd client/
 yarn
