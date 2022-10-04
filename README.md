@@ -2,7 +2,7 @@
 
 A planning handling tool allowing registered users to either manage their staff and create plannings, or recover affectations informations depending on their status.
 
-[Screenshot](Screenshot.png)
+![Screenshot](screenshot.png)
 
 ## Features
 
