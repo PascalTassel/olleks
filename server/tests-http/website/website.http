@@ -1,0 +1,12 @@
+################################################################################
+# Test file for HTTP route of website
+# REST Client for VSCode needed
+# https://marketplace.visualstudio.com/items?itemName=humao.rest-client
+################################################################################
+@endpoint = http://localhost:{{$dotenv PORT}}
+
+### 404
+GET {{ endpoint }}/azertyuiop
+
+### Get homePage
+GET {{ endpoint }}/

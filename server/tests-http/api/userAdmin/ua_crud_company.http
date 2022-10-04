@@ -1,0 +1,104 @@
+################################################################################
+# Test file for HTTP routes of userAdmin API
+# REST Client for VSCode needed
+# https://marketplace.visualstudio.com/items?itemName=humao.rest-client
+################################################################################
+@endpoint = http://localhost:{{$dotenv PORT}}/api/admin/company
+
+### 404
+GET {{ endpoint }}/azertyuiop
+
+### Get all companies
+GET {{ endpoint }}
+
+### Get one company
+GET {{ endpoint }}/1
+
+### Get a company who doesn't exist
+GET {{ endpoint }}/9999
+
+### Get a company with an id as not a number
+GET {{ endpoint }}/tartempion
+
+### Create a company 
+POST {{ endpoint }}
+content-type: application/json
+
+{
+  "name": "POST TEST",
+  "address": "POST TEST",
+  "zip_code": 34000,
+  "type": "Customer"
+}
+
+### Create with an existant company name
+POST {{ endpoint }}
+content-type: application/json
+
+{
+  "name": "POST TEST",
+  "address": "POST TEST 2",
+  "zip_code": 34000,
+  "type": "Customer"
+}
+
+### Create with an existant company address
+POST {{ endpoint }}
+content-type: application/json
+
+{
+  "name": "POST TEST 2",
+  "address": "POST TEST",
+  "zip_code": 34000,
+  "type": "Customer"
+}
+
+### Patch a company 
+PATCH {{ endpoint }}/22
+content-type: application/json
+
+{
+  "name": "PATCH TEST",
+  "address": "PATCH TEST",
+  "zip_code": 34000,
+  "type": "Customer"
+}
+
+### Create with an existant company name
+POST {{ endpoint }}
+content-type: application/json
+
+{
+  "name": "PATCH TEST",
+  "address": "PATCH TEST 2",
+  "zip_code": 34000,
+  "type": "Customer"
+}
+
+### Create with an existant company address
+POST {{ endpoint }}
+content-type: application/json
+
+{
+  "name": "PATCH TEST 2",
+  "address": "PATCH TEST",
+  "zip_code": 34000,
+  "type": "Customer"
+}
+
+### Patch an inexistant company
+PATCH {{ endpoint }}/999
+content-type: application/json
+
+{
+  "name": "PATCH TEST",
+  "address": "PATCH TEST",
+  "zip_code": 34000,
+  "type": "CUSTOMER"
+}
+
+### Delete a company
+DELETE {{ endpoint }}/26
+
+### Delete an inexistant company
+DELETE {{ endpoint }}/999

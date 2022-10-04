@@ -1,0 +1,5 @@
+.sidebar {
+  &:not(.opened) {
+    margin-left: -240px;
+  }
+}

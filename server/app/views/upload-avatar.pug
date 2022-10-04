@@ -1,0 +1,16 @@
+extends layouts/main.pug
+
+block append main
+    h1 Upload image :
+    div(id="image-upload")
+        form(method="POST" action="" enctype="multipart/form-data")
+            div(class="employee-lastname")
+                label(for="lastname") Nom :
+                input(type="text" name="lastname" id="lastname")
+            div(class="employee-social_security_number")
+                label(for="social_security_number") Numéro de sécurité sociale :
+                input(type="text" name="social_security_number" id="social_security_number")
+            div(class="file-input")
+                label(for="file") Image :
+                input(type="file" name="image" id="file")
+            button(type="submit" value="upload") Ajouter l'image

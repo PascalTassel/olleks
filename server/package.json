@@ -1,0 +1,48 @@
+{
+  "name": "O'lleks Server",
+  "version": "1.0.0",
+  "description": "Server Olleks réalisé par l'équipe Back-end : Hicham Chrita et Jordane Devémy",
+  "main": "index.js",
+  "scripts": {
+    "resetProdDB": "sqitch revert -t prod -y; sqitch deploy prod;",
+    "resetDevDB": "sqitch revert -t dev -y; sqitch deploy dev; psql -U spedata -d olleks -f ./data/data_source.sql;",
+    "test": "jest --coverage --coverage-reporters=lcov",
+    "testFull": "jest",
+    "test:watch": "jest --watch",
+    "start": "node .",
+    "dev": "DEBUG=*,-express:*,-nodemon*,-body-parser:* npx nodemon"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "bunyan": "^1.8.15",
+    "cors": "^2.8.5",
+    "dayjs": "^1.10.8",
+    "debug": "^4.3.3",
+    "dotenv": "^16.0.0",
+    "email-validator": "^2.0.4",
+    "express": "^4.17.3",
+    "express-async-handler": "^1.2.0",
+    "express-jsdoc-swagger": "^1.6.7",
+    "express-redis-cache": "^1.1.3",
+    "joi": "^17.6.0",
+    "jsonwebtoken": "^8.5.1",
+    "multer": "^1.4.4",
+    "nodemailer": "^6.7.2",
+    "pg": "^8.7.3",
+    "pug": "^3.0.2"
+  },
+  "devDependencies": {
+    "eslint": "^8.9.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-prettier": "^8.4.0",
+    "eslint-plugin-jest": "^26.1.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "jest": "^27.5.1",
+    "prettier": "^2.5.1",
+    "supertest": "^6.2.2"
+  }
+}

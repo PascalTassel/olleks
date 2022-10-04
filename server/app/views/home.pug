@@ -1,0 +1,14 @@
+extends layouts/main.pug
+
+block append header
+  include partials/header.pug
+
+block append main
+  section
+    h2 O'lleks - API documentation
+    .grid
+      p.text-center
+        a(href=process.env.API_DOCUMENTATION_ROUTE role="button").outline.center View
+
+block append footer
+  include partials/footer.pug

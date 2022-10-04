@@ -1,0 +1,12 @@
+[core]
+	engine = pg
+	top_dir = migrations
+	# plan_file = server/migrations/sqitch.plan
+# [engine "pg"]
+	target = db:pg:<database>
+	# registry = sqitch
+	# client = psql
+[target "dev"]
+	uri = <uri dev database>
+[target "prod"]
+	uri = <uri prod database>

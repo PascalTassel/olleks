@@ -1,0 +1,21 @@
+################################################################################
+# Test file for HTTP routes of userAdmin API
+# REST Client for VSCode needed
+# https://marketplace.visualstudio.com/items?itemName=humao.rest-client
+################################################################################
+@endpoint = http://localhost:{{$dotenv PORT}}/api/admin/planning
+
+### 404
+GET {{ endpoint }}/azertyuiop
+
+### Get week planning
+GET {{ endpoint }}/2022-10
+
+### Get week planning not planned
+GET {{ endpoint }}/2021-10
+
+### Get an inexistant week
+GET {{ endpoint }}/2021-53
+
+### Get week planning with bad format
+GET {{ endpoint }}/2021-9

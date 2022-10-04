@@ -1,0 +1,63 @@
+################################################################################
+# Test file for HTTP routes of website authentification
+# REST Client for VSCode needed
+# https://marketplace.visualstudio.com/items?itemName=humao.rest-client
+################################################################################
+@endpoint = http://localhost:{{$dotenv PORT}}/login
+
+### 404
+GET {{ endpoint }}/azertyuiop
+
+### Post method for visitor 
+POST {{ endpoint }}/
+content-type: application/json
+
+{
+    "email": "olleks.planning@gmail.com",
+    "password": "password"
+}
+
+### Post method for visitor connection with bad E/P
+POST {{ endpoint }}/
+content-type: application/json
+
+{
+    "email": "test@test.com",
+    "password": "mypassword"
+}
+
+### Post method for visitor connection WITH @ ERROR
+POST {{ endpoint }}/
+content-type: application/json
+
+{
+    "email": "testwithoutarobase",
+    "password": "mypassword"
+}
+
+### Post method for visitor connection WITH no email ERROR
+POST {{ endpoint }}/
+content-type: application/json
+
+{
+    "email": "",
+    "password": "mypassword"
+}
+
+### Post method for visitor connection WITH no password ERROR
+POST {{ endpoint }}/
+content-type: application/json
+
+{
+    "email": "test@test.com",
+    "password": ""
+}
+
+### Post method for visitor connection WITH email and password empty
+POST {{ endpoint }}/
+content-type: application/json
+
+{
+    "email": "",
+    "password": ""
+}

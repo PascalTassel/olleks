@@ -1,0 +1,21 @@
+%syntax-version=1.0.0
+%project=olleks
+
+01_init_db 2022-02-24T13:12:05Z Hicham Chrita <student@teleporter> # DDL
+02_View_usersREST 2022-03-01T14:33:14Z Hicham Chrita <student@teleporter> # Add users view
+03_View_admin_planning 2022-03-03T13:41:07Z Hicham Chrita <student@teleporter> # Add admin view
+04_constraint_social_number 2022-03-04T13:42:08Z Hicham Chrita <student@teleporter> # Add domain for social security number
+05_View_user_colleagues 2022-03-07T12:21:27Z Hicham Chrita <student@teleporter> # Add user_colleagues View
+06_View_user_by_admin 2022-03-07T14:06:23Z Hicham Chrita <student@teleporter> # Add view user by admin
+07_Domain_mobile_number 2022-03-07T14:18:51Z Hicham Chrita <student@teleporter> # Add domain for mobile phone
+08_Function_Insert_user 2022-03-07T21:26:13Z Hicham Chrita <student@teleporter> # Function to add new user
+09_Function_Insert_Site 2022-03-08T11:43:20Z Hicham Chrita <student@teleporter> # Funciton to add new site
+10_Function_Insert_Company 2022-03-08T12:50:54Z Hicham Chrita <student@teleporter> # Function to add new company
+11_Function_Update_Company 2022-03-08T22:17:47Z Hicham Chrita <student@teleporter> # Function to modify company
+12_Function_Update_Site 2022-03-09T13:04:02Z Hicham Chrita <student@teleporter> # Function to modify site
+13_Function_Update_Employee 2022-03-09T13:26:39Z Hicham Chrita <student@teleporter> # Function to modify employee
+14_View_get_week_absence_admin_planning 2022-03-10T08:05:05Z Hicham Chrita <student@teleporter> # Add view to get absence assignment
+15_CHECK_date_assignment 2022-03-10T09:05:19Z Hicham Chrita <student@teleporter> # Add check constraint on assignment table
+16_Function_Update_Assignment 2022-03-10T14:09:53Z Hicham Chrita <student@teleporter> # Funciton to update assignment
+17_Function_Insert_Assignment 2022-03-10T19:17:15Z Hicham Chrita <student@teleporter> # Function to create new assignment
+18_View_Site_Company_name 2022-03-14T19:04:13Z Hicham Chrita <student@teleporter> # Add view for site with company name\nsqitch add . 18_View_Site_Company_name

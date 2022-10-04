@@ -1,0 +1,150 @@
+################################################################################
+# Test file for HTTP routes of userAdmin API
+# REST Client for VSCode needed
+# https://marketplace.visualstudio.com/items?itemName=humao.rest-client
+################################################################################
+@endpoint = http://localhost:{{$dotenv PORT}}/api/admin/planning/assignment
+
+### 404
+GET {{ endpoint }}/azertyuiop
+
+### Create employee assignment WITH SITE
+POST {{ endpoint }}/user/
+content-type: application/json
+
+{
+  "starting_date": "2022-12-13",
+  "ending_date": "2022-12-13",
+  "color": "#0F0",
+  "position": 0,
+  "visibility": true,
+  "employee_id": 5,
+  "site_id": 5,
+  "absence_id": null
+}
+
+### Create employee assignment WITH ABSENCE
+POST {{ endpoint }}/user/
+content-type: application/json
+
+{
+  "starting_date": "2022-12-12",
+  "ending_date": "2022-12-12",
+  "color": "#OFO",
+  "position": 0,
+  "visibility": true,
+  "employee_id": 5,
+  "site_id": null,
+  "absence_id": 5
+}
+
+### Update employee assignment WITH SITE
+PATCH {{ endpoint }}/57/user
+content-type: application/json
+
+{
+  "starting_date": "2022-12-11",
+  "ending_date": "2022-12-11",
+  "color": "#OFO",
+  "position": 0,
+  "visibility": true,
+  "employee_id": 5,
+  "site_id": 5,
+  "absence_id": null
+}
+
+### Update employee assignment WITH ABSENCE
+PATCH {{ endpoint }}/57/user
+content-type: application/json
+
+{
+  "starting_date": "2022-12-12",
+  "ending_date": "2022-12-12",
+  "color": "#OFO",
+  "position": 0,
+  "visibility": true,
+  "employee_id": 5,
+  "site_id": null,
+  "absence_id": 5
+}
+
+### Update employee assignment without employee id
+PATCH {{ endpoint }}/57/user
+content-type: application/json
+
+{
+  "starting_date": "2022-12-12",
+  "ending_date": "2022-12-12",
+  "color": "#OFO",
+  "position": 0,
+  "visibility": true,
+  "employee_id": null,
+  "site_id": null,
+  "absence_id": 5
+}
+
+### Update employee assignment with an inexistant employee id
+PATCH {{ endpoint }}/57/user
+content-type: application/json
+
+{
+  "starting_date": "2022-12-12",
+  "ending_date": "2022-12-12",
+  "color": "#OFO",
+  "position": 0,
+  "visibility": true,
+  "employee_id": 999,
+  "site_id": null,
+  "absence_id": 5
+}
+
+### Update employee assignment with bad date format
+PATCH {{ endpoint }}/58/user
+content-type: application/json
+
+{
+  "starting_date": "2022/12/12",
+  "ending_date": "2022-12-12",
+  "color": "#OFO",
+  "position": 0,
+  "visibility": true,
+  "employee_id": 999,
+  "site_id": null,
+  "absence_id": 5
+}
+
+### TODO must return an error : Update employee assignment WITH ABSENCE AND SITE AS NULL
+PATCH {{ endpoint }}/58/user
+content-type: application/json
+
+{
+  "starting_date": "2022-12-12",
+  "ending_date": "2022-12-12",
+  "color": "#OFO",
+  "position": 0,
+  "visibility": true,
+  "employee_id": 5,
+  "site_id": null,
+  "absence_id": null
+}
+
+### TODO must return an error : Update employee assignment WITH ABSENCE AND SITE WITH AN ID
+PATCH {{ endpoint }}/58/user
+content-type: application/json
+
+{
+  "starting_date": "2022-12-12",
+  "ending_date": "2022-12-12",
+  "color": "#OFO",
+  "position": 0,
+  "visibility": true,
+  "employee_id": 5,
+  "site_id": 5,
+  "absence_id": 5
+}
+
+### Delete an assignment
+DELETE {{ endpoint }}/57/user
+
+### Delete an inexistant assignment
+DELETE {{ endpoint }}/999/user
